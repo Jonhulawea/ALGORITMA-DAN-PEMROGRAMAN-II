@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About SIMTI</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#0f0517;
+}
+
+/* Overlay Blur */
+
+.overlay{
+    position:fixed;
+    inset:0;
+
+    background:rgba(15,5,23,.75);
+
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:30px;
+}
+
+/* Modal */
+
+.about-modal{
+
+    width:100%;
+    max-width:1100px;
+
+    background:#1a0d27;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    border:1px solid rgba(255,79,163,.15);
+
+    box-shadow:
+    0 20px 50px rgba(255,79,163,.15);
+}
+
+/* Header */
+
+.modal-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px 30px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #1c0d2b,
+    #29143b
+    );
+
+    border-bottom:
+    1px solid rgba(255,79,163,.1);
+}
+
+.modal-header h2{
+    color:white;
+}
+
+.close-btn{
+
+    width:40px;
+    height:40px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#241033;
+
+    color:#ff9fd0;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.close-btn:hover{
+    background:#ff4fa3;
+    color:white;
+}
+
+/* Content */
+
+.modal-content{
+
+    padding:25px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(420px,1fr));
+
+    gap:20px;
+}
+
+/* Card */
+
+.about-card{
+
+    background:#241033;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    border:
+    1px solid rgba(255,79,163,.08);
+}
+
+.about-card h3{
+
+    color:#ff7ab8;
+
+    margin-bottom:15px;
+}
+
+.about-card ul{
+    list-style:none;
+}
+
+.about-card li{
+
+    color:#d6c9e4;
+
+    margin-bottom:10px;
+
+    line-height:1.6;
+}
+
+/* Table */
+
+.about-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.about-table th{
+
+    background:#2f1645;
+
+    color:#ff7ab8;
+
+    text-align:left;
+
+    padding:10px;
+}
+
+.about-table td{
+
+    color:#d6c9e4;
+
+    padding:10px;
+
+    border-top:
+    1px solid rgba(255,255,255,.05);
+}
+
+/* Footer */
+
+.modal-footer{
+
+    padding:20px 30px;
+
+    text-align:right;
+
+    border-top:
+    1px solid rgba(255,79,163,.08);
+}
+
+.btn-tutup{
+
+    text-decoration:none;
+
+    padding:12px 20px;
+
+    border-radius:12px;
+
+    color:white;
+
+    background:
+    linear-gradient(
+    135deg,
+    #ff4fa3,
+    #d946ef
+    );
+
+    font-weight:600;
+}
+
+.btn-tutup:hover{
+    opacity:.9;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .modal-content{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="overlay">
+
+    <div class="about-modal">
+
+        <div class="modal-header">
+
+            <h2>
+                <i class="fa fa-circle-info"></i>
+                Tentang Aplikasi SIMTI
+            </h2>
+
+            <a href="/" class="close-btn">
+                <i class="fa fa-times"></i>
+            </a>
+
+        </div>
+
+        <div class="modal-content">
+
+            <!-- OOP -->
+
+            <div class="about-card">
+
+                <h3>📚 Konsep OOP</h3>
+
+                <ul>
+                    <li>✅ Enkapsulasi — Private Attribute & Property</li>
+                    <li>✅ Pewarisan — Mahasiswa & User</li>
+                    <li>✅ Polimorfisme — Override Method</li>
+                    <li>✅ Abstraksi — Implementasi Class</li>
+                </ul>
+
+            </div>
+
+            <!-- Searching -->
+
+            <div class="about-card">
+
+                <h3>🔎 Algoritma Pencarian</h3>
+
+                <table class="about-table">
+
+                    <tr>
+                        <th>Algoritma</th>
+                        <th>Kompleksitas</th>
+                    </tr>
+
+                    <tr>
+                        <td>Linear Search</td>
+                        <td>O(n)</td>
+                    </tr>
+
+                    <tr>
+                        <td>Binary Search</td>
+                        <td>O(log n)</td>
+                    </tr>
+
+                    <tr>
+                        <td>Sequential Search</td>
+                        <td>O(n)</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+            <!-- Sorting -->
+
+            <div class="about-card">
+
+                <h3>↕️ Algoritma Pengurutan</h3>
+
+                <table class="about-table">
+
+                    <tr>
+                        <th>Algoritma</th>
+                        <th>Kompleksitas</th>
+                    </tr>
+
+                    <tr>
+                        <td>Bubble Sort</td>
+                        <td>O(n²)</td>
+                    </tr>
+
+                    <tr>
+                        <td>Selection Sort</td>
+                        <td>O(n²)</td>
+                    </tr>
+
+                    <tr>
+                        <td>Insertion Sort</td>
+                        <td>O(n²)</td>
+                    </tr>
+
+                    <tr>
+                        <td>Shell Sort</td>
+                        <td>O(n log n)</td>
+                    </tr>
+
+                    <tr>
+                        <td>Merge Sort</td>
+                        <td>O(n log n)</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+            <!-- Security -->
+
+            <div class="about-card">
+
+                <h3>🔒 Security Hardening</h3>
+
+                <ul>
+                    <li>🛡 Regex Validation</li>
+                    <li>🛡 Password Hashing</li>
+                    <li>🛡 Session Login</li>
+                    <li>🛡 Input Validation</li>
+                    <li>🛡 JSON Data Protection</li>
+                </ul>
+
+            </div>
+
+            <!-- Feature -->
+
+            <div class="about-card">
+
+                <h3>📁 Fitur SIMTI</h3>
+
+                <ul>
+                    <li>📌 Login</li>
+                    <li>📌 Dashboard Mahasiswa</li>
+                    <li>📌 Kelola Data Mahasiswa</li>
+                    <li>📌 Kelola Mata Kuliah</li>
+                </ul>
+
+            </div>
+
+            <!-- Stack -->
+
+            <div class="about-card">
+
+                <h3>💻 Tech Stack</h3>
+
+                <ul>
+                    <li>🐍 Python Flask</li>
+                    <li>🗂 JSON Database</li>
+                    <li>🎨 HTML5 & CSS3</li>
+                    <li>⚡ JavaScript</li>
+                    <li>📱 Responsive Design</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+
+            <a href="/" class="btn-tutup">
+                Tutup
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

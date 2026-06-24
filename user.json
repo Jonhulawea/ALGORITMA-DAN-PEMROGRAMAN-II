@@ -1,0 +1,16 @@
+[
+    {
+        "nim": "admin",
+        "nama": "Administrator",
+        "email": "admin@simti.com",
+        "password": "admin123",
+        "role": "admin"
+    },
+    {
+        "nim": "241011450204",
+        "nama": "Oktavianus Jonhulawea",
+        "email": "okta@gmail.com",
+        "password": "12345",
+        "role": "user"
+    }
+]

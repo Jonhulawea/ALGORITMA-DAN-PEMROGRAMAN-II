@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pencarian Data Mahasiswa</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#0f0517;
+    color:white;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:40px;
+}
+
+.header{
+    margin-bottom:25px;
+}
+
+.header h1{
+    color:#ff4fa3;
+    font-size:36px;
+}
+
+.header p{
+    color:#c9b6dd;
+    margin-top:8px;
+}
+
+.card{
+    background:#1a0d27;
+    border:1px solid rgba(255,79,163,.12);
+    border-radius:20px;
+    margin-bottom:25px;
+    overflow:hidden;
+}
+
+.card-header{
+    padding:18px 25px;
+    border-bottom:1px solid rgba(255,79,163,.08);
+    font-weight:600;
+}
+
+.card-body{
+    padding:25px;
+}
+
+input,
+select{
+
+    width:100%;
+
+    padding:14px;
+
+    margin-bottom:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#241033;
+
+    color:white;
+
+    outline:none;
+}
+
+button{
+
+    background:linear-gradient(
+        135deg,
+        #ff4fa3,
+        #d946ef
+    );
+
+    color:white;
+
+    border:none;
+
+    padding:12px 25px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-weight:600;
+}
+
+button:hover{
+    opacity:.9;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+thead{
+    background:#241033;
+}
+
+th{
+    padding:15px;
+    color:#ff9fd0;
+    text-align:left;
+}
+
+td{
+    padding:15px;
+    border-top:1px solid rgba(255,79,163,.08);
+}
+
+tbody tr:hover{
+    background:#241033;
+}
+
+.badge{
+
+    display:inline-block;
+
+    padding:8px 14px;
+
+    border-radius:20px;
+
+    background:
+    rgba(255,79,163,.15);
+
+    color:#ffb7dc;
+
+    margin-bottom:15px;
+}
+
+.empty{
+    text-align:center;
+    padding:50px;
+    color:#c9b6dd;
+}
+
+.back{
+    display:inline-block;
+    margin-top:20px;
+    text-decoration:none;
+    color:white;
+    background:linear-gradient(
+        135deg,
+        #ff4fa3,
+        #d946ef
+    );
+    padding:12px 20px;
+    border-radius:12px;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<div class="header">
+
+    <h1>
+        <i class="fa fa-search"></i>
+        Pencarian
+    </h1>
+
+    <p>
+        Cari data mahasiswa menggunakan algoritma pencarian
+    </p>
+
+</div>
+
+<div class="card">
+
+    <div class="card-header">
+
+        <i class="fa fa-magnifying-glass"></i>
+        Pencarian Data
+
+    </div>
+
+    <div class="card-body">
+
+        <form action="/pencarian" method="POST">
+
+            <select name="algoritma">
+
+                <option value="linear">
+                    Linear Search
+                </option>
+
+                <option value="binary">
+                    Binary Search
+                </option>
+
+                <option value="sequential">
+                    Sequential Search
+                </option>
+
+            </select>
+
+            <input
+                type="text"
+                name="keyword"
+                placeholder="Masukkan NIM, Nama atau Jurusan"
+                required>
+
+            <button type="submit">
+
+                <i class="fa fa-search"></i>
+                Cari
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<div class="card">
+
+    <div class="card-header">
+
+        Hasil Pencarian
+
+    </div>
+
+    <div class="card-body">
+
+        {% if hasil %}
+
+        <div class="badge">
+
+            Algoritma :
+            {{ algoritma }}
+
+        </div>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>No</th>
+                    <th>NIM</th>
+                    <th>Nama</th>
+                    <th>Jurusan</th>
+                    <th>Semester</th>
+                    <th>IPK</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            {% for mhs in hasil %}
+
+                <tr>
+
+                    <td>{{ loop.index }}</td>
+                    <td>{{ mhs["nim"] }}</td>
+                    <td>{{ mhs["nama"] }}</td>
+                    <td>{{ mhs["jurusan"] }}</td>
+                    <td>{{ mhs["semester"] }}</td>
+                    <td>{{ mhs["ipk"] }}</td>
+
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+        {% elif hasil is not none %}
+
+        <div class="empty">
+
+            Data tidak ditemukan
+
+        </div>
+
+        {% else %}
+
+        <div class="empty">
+
+            Masukkan kata kunci untuk mencari data mahasiswa
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+<a href="/" class="back">
+
+    <i class="fa fa-arrow-left"></i>
+    Kembali ke Dashboard
+
+</a>
+
+</div>
+
+</body>
+</html>

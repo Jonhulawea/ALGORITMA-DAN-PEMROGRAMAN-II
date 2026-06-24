@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tambah Mata Kuliah</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#0f0517;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+}
+
+.card{
+
+    width:650px;
+
+    background:#1a0d27;
+
+    border-radius:25px;
+
+    padding:30px;
+
+    border:1px solid rgba(255,79,163,.15);
+
+    box-shadow:
+    0 0 30px rgba(255,79,163,.08);
+}
+
+.header{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.header h1{
+    color:#ff4fa3;
+    margin-bottom:8px;
+}
+
+.header p{
+    color:#c9b6dd;
+    font-size:14px;
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    color:#ffb6dc;
+
+    font-weight:600;
+}
+
+.form-group input,
+.form-group select{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:12px;
+
+    background:#241033;
+
+    color:white;
+}
+
+.row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.btn-group{
+
+    margin-top:20px;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:10px;
+}
+
+.btn-primary{
+
+    border:none;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-weight:bold;
+
+    background:linear-gradient(
+        135deg,
+        #ff4fa3,
+        #d946ef
+    );
+}
+
+.btn-secondary{
+
+    text-decoration:none;
+
+    text-align:center;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    color:white;
+
+    font-weight:bold;
+
+    background:#241033;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover{
+    opacity:.9;
+}
+
+</style>
+</head>
+<body>
+
+<div class="card">
+
+    <div class="header">
+
+        <h1>
+            <i class="fa fa-book-medical"></i>
+            Tambah Mata Kuliah
+        </h1>
+
+        <p>
+            Tambahkan mata kuliah baru untuk mahasiswa
+        </p>
+
+    </div>
+
+    <form method="POST">
+
+        <div class="form-group">
+
+            <label>Kode Mata Kuliah</label>
+
+            <input
+            type="text"
+            name="kode"
+            placeholder="Contoh: 03TPLE003"
+            required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Nama Mata Kuliah</label>
+
+            <input
+            type="text"
+            name="nama"
+            placeholder="Masukkan Nama Mata Kuliah"
+            required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Dosen Pengampu</label>
+
+            <input
+            type="text"
+            name="dosen"
+            placeholder="Masukkan Nama Dosen"
+            required>
+
+        </div>
+
+        <div class="row">
+
+            <div class="form-group">
+
+                <label>SKS</label>
+
+                <input
+                type="number"
+                name="sks"
+                min="1"
+                max="6"
+                required>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Nilai</label>
+
+                <select name="nilai">
+
+                    <option value="A">A</option>
+                    <option value="B+">B+</option>
+                    <option value="B">B</option>
+                    <option value="C+">C+</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <div class="btn-group">
+
+            <button
+            type="submit"
+            class="btn-primary">
+
+                <i class="fa fa-floppy-disk"></i>
+                Simpan Mata Kuliah
+
+            </button>
+
+            <a href="/akademik/{{ mahasiswa.nim }}"
+               class="btn-secondary">
+
+                <i class="fa fa-arrow-left"></i>
+                Kembali
+
+            </a>
+
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>

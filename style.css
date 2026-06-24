@@ -1,0 +1,415 @@
+/* ======================
+   SIMTI DARK PINK PREMIUM
+====================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#0f0517;
+    color:white;
+}
+
+/* ======================
+   HEADER
+====================== */
+
+.header{
+    background:linear-gradient(
+        135deg,
+        #ff4fa3,
+        #d946ef
+    );
+
+    padding:25px 35px;
+}
+
+.header h1{
+    margin-bottom:8px;
+}
+
+.header p{
+    color:#ffe4f3;
+}
+
+/* ======================
+   CONTAINER
+====================== */
+
+.container{
+    width:95%;
+    margin:25px auto;
+}
+
+/* ======================
+   CARD
+====================== */
+
+.card{
+    background:#1a0d27;
+
+    border:
+    1px solid rgba(255,79,163,.12);
+
+    border-radius:24px;
+
+    padding:25px;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.15);
+}
+
+.card h2{
+    color:#ff7ab8;
+    margin-bottom:20px;
+}
+
+/* ======================
+   BUTTON
+====================== */
+
+.btn{
+    text-decoration:none;
+
+    padding:12px 18px;
+
+    border-radius:12px;
+
+    color:white;
+
+    font-weight:600;
+
+    transition:.3s;
+
+    border:none;
+
+    cursor:pointer;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.btn-dashboard{
+    background:#241033;
+}
+
+.btn-dashboard:hover{
+    background:#32144a;
+}
+
+.btn-kembali{
+    background:#241033;
+}
+
+.btn-kembali:hover{
+    background:#32144a;
+}
+
+.btn-tambah{
+    background:linear-gradient(
+        135deg,
+        #ff4fa3,
+        #d946ef
+    );
+}
+
+.btn-primary{
+    background:linear-gradient(
+        135deg,
+        #ff4fa3,
+        #d946ef
+    );
+}
+
+.btn-secondary{
+    background:#241033;
+}
+
+/* ======================
+   TOP ACTION
+====================== */
+
+.top-action{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.left-menu{
+    display:flex;
+    gap:10px;
+}
+
+/* ======================
+   SEARCH
+====================== */
+
+.search-box{
+    display:flex;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.search-box input{
+
+    flex:1;
+
+    padding:14px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:12px;
+
+    background:#241033;
+
+    color:white;
+}
+
+.search-box button{
+
+    width:55px;
+    height:55px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:linear-gradient(
+        135deg,
+        #ff4fa3,
+        #d946ef
+    );
+
+    color:white;
+
+    cursor:pointer;
+}
+
+/* ======================
+   TABLE
+====================== */
+
+.table-modern{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.table-modern th{
+
+    background:#32144a;
+
+    color:#ff7ab8;
+
+    padding:15px;
+}
+
+.table-modern td{
+
+    padding:15px;
+
+    text-align:center;
+
+    color:#d6c9e4;
+
+    border-bottom:
+    1px solid rgba(255,255,255,.05);
+}
+
+.table-modern tr:hover{
+    background:#241033;
+}
+
+/* ======================
+   BADGE
+====================== */
+
+.badge{
+
+    background:#32144a;
+
+    color:#ff9fd0;
+
+    padding:8px 14px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    font-weight:600;
+}
+
+/* ======================
+   AKSI
+====================== */
+
+.aksi-group{
+    display:flex;
+    justify-content:center;
+}
+
+.btn-akademik{
+    background:#06b6d4;
+    color:white;
+    text-decoration:none;
+    padding:10px 15px;
+    border-radius:10px 0 0 10px;
+}
+
+.btn-edit{
+    background:#f59e0b;
+    color:white;
+    text-decoration:none;
+    padding:10px 15px;
+}
+
+.btn-hapus{
+    background:#ef4444;
+    color:white;
+    text-decoration:none;
+    padding:10px 15px;
+    border-radius:0 10px 10px 0;
+}
+
+/* ======================
+   FORM
+====================== */
+
+.form-group{
+    margin-bottom:18px;
+}
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    color:#ffb6dc;
+
+    font-weight:600;
+}
+
+.form-group input,
+.form-group select{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:12px;
+
+    background:#241033;
+
+    color:white;
+}
+
+.row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+/* ======================
+   FORM CARD
+====================== */
+
+.form-card{
+
+    width:700px;
+
+    margin:auto;
+
+    background:#1a0d27;
+
+    border-radius:25px;
+
+    padding:30px;
+
+    border:
+    1px solid rgba(255,79,163,.15);
+
+    box-shadow:
+    0 0 30px rgba(255,79,163,.08);
+}
+
+.form-header{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.form-header h1{
+    color:#ff4fa3;
+}
+
+.form-header p{
+    color:#c9b6dd;
+}
+
+.btn-group{
+
+    margin-top:20px;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:10px;
+}
+
+/* ======================
+   ERROR
+====================== */
+
+.error{
+
+    background:
+    rgba(239,68,68,.15);
+
+    border:
+    1px solid rgba(239,68,68,.4);
+
+    color:#ff9f9f;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    margin-bottom:20px;
+}
+
+/* ======================
+   RESPONSIVE
+====================== */
+
+@media(max-width:900px){
+
+    .top-action{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .table-modern{
+        display:block;
+        overflow-x:auto;
+    }
+
+    .row{
+        grid-template-columns:1fr;
+    }
+
+    .form-card{
+        width:95%;
+    }
+}

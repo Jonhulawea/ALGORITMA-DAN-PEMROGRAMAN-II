@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Akademik SIMTI</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#0f0517;
+    color:white;
+}
+
+/* HEADER */
+
+.header{
+    background:linear-gradient(
+        135deg,
+        #ff4fa3,
+        #d946ef
+    );
+
+    padding:25px 35px;
+}
+
+.header h1{
+    margin-bottom:8px;
+}
+
+.header p{
+    color:#ffe6f4;
+}
+
+/* CONTAINER */
+
+.container{
+    width:95%;
+    margin:25px auto;
+}
+
+/* PROFILE */
+
+.profile{
+    background:#1a0d27;
+    border:1px solid rgba(255,79,163,.12);
+
+    border-radius:20px;
+
+    padding:25px 30px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:20px;
+}
+
+.profile-left h2{
+    color:#ff7ab8;
+    margin-bottom:10px;
+}
+
+.profile-left p{
+    color:#d6c9e4;
+}
+
+.profile-right{
+    text-align:right;
+}
+
+.profile-right small{
+    color:#c9b6dd;
+}
+
+.ipk{
+    font-size:32px;
+    font-weight:bold;
+    color:#ff4fa3;
+}
+
+/* TOP ACTION */
+
+.top-action{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.left-menu{
+    display:flex;
+    gap:10px;
+}
+
+.btn{
+    text-decoration:none;
+    color:white;
+
+    padding:12px 18px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.dashboard,
+.kembali{
+    background:#241033;
+}
+
+.tambah{
+    background:linear-gradient(
+        135deg,
+        #ff4fa3,
+        #d946ef
+    );
+}
+
+/* CARD */
+
+.card{
+    background:#1a0d27;
+
+    border:1px solid rgba(255,79,163,.12);
+
+    border-radius:20px;
+
+    padding:25px;
+}
+
+.card h2{
+    color:#ff7ab8;
+    margin-bottom:20px;
+}
+
+/* TABLE */
+
+.table-modern{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.table-modern th{
+    background:#32144a;
+    color:#ff7ab8;
+    padding:15px;
+}
+
+.table-modern td{
+    padding:15px;
+    text-align:center;
+
+    border-bottom:
+    1px solid rgba(255,255,255,.05);
+}
+
+.table-modern tr:hover{
+    background:#241033;
+}
+
+/* BADGES */
+
+.badge-sks{
+
+    background:#32144a;
+
+    color:#ff9fd0;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-weight:bold;
+}
+
+.badge-nilai{
+
+    width:35px;
+    height:35px;
+
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#ff4fa3;
+
+    color:white;
+
+    font-weight:bold;
+}
+
+/* BUTTON AKSI */
+
+.btn-action{
+    text-decoration:none;
+    color:white;
+
+    padding:8px 14px;
+
+    border-radius:10px;
+
+    margin:0 2px;
+}
+
+.btn-absensi{
+    background:#06b6d4;
+}
+
+.btn-edit{
+    background:#ff9800;
+}
+
+.btn-hapus{
+    background:#ef4444;
+}
+
+@media(max-width:900px){
+
+    .profile{
+        flex-direction:column;
+        gap:15px;
+        text-align:center;
+    }
+
+    .profile-right{
+        text-align:center;
+    }
+
+    .top-action{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .table-modern{
+        display:block;
+        overflow-x:auto;
+    }
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+
+    <h1>
+        📚 Akademik Mahasiswa
+    </h1>
+
+    <p>
+        Sistem Informasi Mahasiswa Teknik Informatika
+    </p>
+
+</div>
+
+<div class="container">
+
+    <div class="profile">
+
+        <div class="profile-left">
+
+            <h2>
+                {{ mahasiswa.nama }}
+            </h2>
+
+            <p>
+                NIM : {{ mahasiswa.nim }}
+                • Semester {{ mahasiswa.semester }}
+            </p>
+
+        </div>
+
+        <div class="profile-right">
+
+            <small>IPK</small>
+
+            <div class="ipk">
+                {{ mahasiswa.ipk }}
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="top-action">
+
+        <div class="left-menu">
+
+            <a href="/"
+               class="btn dashboard">
+
+                <i class="fa fa-home"></i>
+                Dashboard
+
+            </a>
+
+            <a href="/mahasiswa"
+               class="btn btn-kembali">
+
+                <i class="fa fa-arrow-left"></i>
+                Kembali
+
+            </a>
+
+        </div>
+
+        <a href="/tambah-matkul/{{ mahasiswa.nim }}"
+           class="btn tambah">
+
+            <i class="fa fa-plus"></i>
+            Tambah Mata Kuliah
+
+        </a>
+
+    </div>
+
+    <div class="card">
+
+        <h2>
+            Daftar Mata Kuliah
+        </h2>
+
+        <table class="table-modern">
+
+            <thead>
+
+                <tr>
+
+                    <th>Kode</th>
+                    <th>Mata Kuliah</th>
+                    <th>Dosen</th>
+                    <th>SKS</th>
+                    <th>Nilai</th>
+                    <th>Aksi</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for mk in mahasiswa.matakuliah %}
+
+                <tr>
+
+                    <td>{{ mk.kode }}</td>
+
+                    <td>{{ mk.nama }}</td>
+
+                    <td>{{ mk.dosen }}</td>
+
+                    <td>
+
+                        <span class="badge-sks">
+                            {{ mk.sks }}
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        <span class="badge-nilai">
+                            {{ mk.nilai }}
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        <a href="/edit-matkul/{{ mahasiswa.nim }}/{{ mk.id }}"
+                           class="btn-action btn-edit">
+
+                            Edit
+
+                        </a>
+
+                        <a href="/hapus-matkul/{{ mahasiswa.nim }}/{{ mk.id }}"
+                           class="btn-action btn-hapus"
+                           onclick="return confirm('Hapus mata kuliah ini?')">
+
+                            Hapus
+
+                        </a>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>

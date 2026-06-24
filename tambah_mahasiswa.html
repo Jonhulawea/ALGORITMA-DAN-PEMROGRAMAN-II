@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tambah Mahasiswa</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#0f0517;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+}
+
+.card{
+
+    width:700px;
+
+    background:#1a0d27;
+
+    border-radius:25px;
+
+    padding:35px;
+
+    border:1px solid rgba(255,79,163,.15);
+
+    box-shadow:
+    0 0 30px rgba(255,79,163,.08);
+}
+
+.header{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.header h1{
+    color:#ff4fa3;
+    margin-bottom:10px;
+}
+
+.header p{
+    color:#c9b6dd;
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    color:#ffb6dc;
+
+    font-weight:600;
+}
+
+.form-group input{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:12px;
+
+    background:#241033;
+
+    color:white;
+}
+
+.form-group input::placeholder{
+    color:#888;
+}
+
+.row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.btn-group{
+
+    margin-top:25px;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:10px;
+}
+
+.btn-primary{
+
+    border:none;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-weight:bold;
+
+    background:linear-gradient(
+        135deg,
+        #ff4fa3,
+        #d946ef
+    );
+}
+
+.btn-secondary{
+
+    text-decoration:none;
+
+    text-align:center;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    color:white;
+
+    font-weight:bold;
+
+    background:#241033;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover{
+    opacity:.9;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="card">
+
+    <div class="header">
+
+        <h1>
+            <i class="fa fa-user-plus"></i>
+            Tambah Mahasiswa
+        </h1>
+
+        <p>
+            Tambahkan data mahasiswa baru ke SIMTI
+        </p>
+
+    </div>
+
+    <form method="POST">
+
+        <div class="form-group">
+
+            <label>NIM</label>
+
+            <input
+            type="text"
+            name="nim"
+            placeholder="Masukkan NIM"
+            required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Nama Mahasiswa</label>
+
+            <input
+            type="text"
+            name="nama"
+            placeholder="Masukkan Nama Mahasiswa"
+            required>
+
+        </div>
+
+        <div class="row">
+
+            <div class="form-group">
+
+                <label>Jurusan</label>
+
+                <input
+                type="text"
+                name="jurusan"
+                value="Teknik Informatika"
+                required>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Semester</label>
+
+                <input
+                type="number"
+                name="semester"
+                min="1"
+                max="14"
+                required>
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>IPK</label>
+
+            <input
+            type="number"
+            step="0.01"
+            name="ipk"
+            placeholder="Contoh: 3.75"
+            required>
+
+        </div>
+
+        <div class="btn-group">
+
+            <button
+            type="submit"
+            class="btn-primary">
+
+                <i class="fa fa-floppy-disk"></i>
+                Simpan Mahasiswa
+
+            </button>
+
+            <a href="/mahasiswa"
+               class="btn-secondary">
+
+                <i class="fa fa-arrow-left"></i>
+                Kembali
+
+            </a>
+
+        </div>
+
+        {% if error %}
+
+        <div class="error">
+
+            <i class="fa fa-circle-exclamation"></i>
+            {{ error }}
+
+        </div>  
+
+        {% endif %}
+
+    </form>
+
+</div>
+
+</body>
+</html>

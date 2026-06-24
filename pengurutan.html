@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pengurutan Data Mahasiswa</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#0f0517;
+    color:white;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:40px;
+}
+
+.header{
+    margin-bottom:25px;
+}
+
+.header h1{
+    color:#ff4fa3;
+    font-size:36px;
+}
+
+.header p{
+    color:#c9b6dd;
+    margin-top:8px;
+}
+
+.card{
+
+    background:#1a0d27;
+
+    border:1px solid
+    rgba(255,79,163,.12);
+
+    border-radius:20px;
+
+    margin-bottom:25px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 0 20px rgba(255,79,163,.08);
+}
+
+.card-header{
+
+    padding:18px 25px;
+
+    border-bottom:
+    1px solid rgba(255,79,163,.08);
+
+    font-weight:600;
+
+    color:white;
+}
+
+.card-body{
+    padding:25px;
+}
+
+select{
+
+    width:100%;
+
+    padding:14px;
+
+    margin-bottom:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#241033;
+
+    color:white;
+
+    outline:none;
+}
+
+select:focus{
+
+    border:1px solid #ff4fa3;
+
+    box-shadow:
+    0 0 15px rgba(255,79,163,.25);
+}
+
+button{
+
+    background:linear-gradient(
+        135deg,
+        #ff4fa3,
+        #d946ef
+    );
+
+    color:white;
+
+    border:none;
+
+    padding:12px 25px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+button:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+    0 0 20px rgba(255,79,163,.35);
+}
+
+.info{
+
+    margin-top:15px;
+
+    color:#c9b6dd;
+
+    font-size:14px;
+}
+
+.badge{
+
+    display:inline-block;
+
+    padding:8px 14px;
+
+    border-radius:20px;
+
+    background:
+    rgba(255,79,163,.15);
+
+    border:
+    1px solid rgba(255,79,163,.25);
+
+    color:#ffb7dc;
+
+    margin-bottom:15px;
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+}
+
+thead{
+
+    background:#241033;
+}
+
+th{
+
+    padding:15px;
+
+    color:#ff9fd0;
+
+    text-align:left;
+}
+
+td{
+
+    padding:15px;
+
+    border-top:
+    1px solid rgba(255,79,163,.08);
+}
+
+tbody tr:hover{
+
+    background:#241033;
+}
+
+.empty{
+
+    text-align:center;
+
+    padding:60px;
+
+    color:#c9b6dd;
+}
+
+.empty i{
+
+    font-size:60px;
+
+    color:#ff4fa3;
+
+    margin-bottom:15px;
+}
+
+.back{
+
+    display:inline-block;
+
+    margin-top:20px;
+
+    padding:12px 20px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    color:white;
+
+    background:linear-gradient(
+        135deg,
+        #ff4fa3,
+        #d946ef
+    );
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+
+        <h1>
+            <i class="fa fa-sort"></i>
+            Pengurutan
+        </h1>
+
+        <p>
+            Urutkan data mahasiswa dengan 5 algoritma
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <div class="card-header">
+            <i class="fa fa-arrow-down-wide-short"></i>
+            Pengurutan Data
+        </div>
+
+        <div class="card-body">
+
+            <form action="/pengurutan"
+                  method="POST">
+
+                <select name="algoritma">
+
+                    <option value="bubble">
+                        Bubble Sort — O(n²)
+                    </option>
+
+                    <option value="selection">
+                        Selection Sort — O(n²)
+                    </option>
+
+                    <option value="insertion">
+                        Insertion Sort — O(n²) / O(n)
+                    </option>
+
+                    <option value="shell">
+                        Shell Sort — O(n log n)
+                    </option>
+
+                    <option value="merge">
+                        Merge Sort — O(n log n)
+                    </option>
+
+                </select>
+
+                <select name="field">
+
+                    <option value="nama">
+                        Urutkan berdasarkan Nama
+                    </option>
+
+                    <option value="nim">
+                        Urutkan berdasarkan NIM
+                    </option>
+
+                </select>
+
+                <button type="submit">
+
+                    <i class="fa fa-sort"></i>
+                    Urutkan
+
+                </button>
+
+            </form>
+
+            <div class="info">
+
+                💡 Hasil pengurutan tidak mengubah data tersimpan.
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="card-header">
+
+            Hasil Pengurutan
+
+        </div>
+
+        <div class="card-body">
+
+            {% if hasil %}
+
+            <div class="badge">
+
+                Algoritma :
+                {{ algoritma }}
+
+                |
+
+                Kriteria :
+                {{ field }}
+
+            </div>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>No</th>
+                        <th>NIM</th>
+                        <th>Nama</th>
+                        <th>Jurusan</th>
+                        <th>Semester</th>
+                        <th>IPK</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                {% for mhs in hasil %}
+
+                    <tr>
+
+                        <td>{{ loop.index }}</td>
+                        <td>{{ mhs["nim"] }}</td>
+                        <td>{{ mhs["nama"] }}</td>
+                        <td>{{ mhs["jurusan"] }}</td>
+                        <td>{{ mhs["semester"] }}</td>
+                        <td>{{ mhs["ipk"] }}</td>
+
+                    </tr>
+
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+
+            {% else %}
+
+            <div class="empty">
+
+                <i class="fa fa-sort"></i>
+
+                <p>
+                    Tekan "Urutkan" untuk melihat hasil.
+                </p>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+    <a href="/" class="back">
+
+        <i class="fa fa-arrow-left"></i>
+        Kembali ke Dashboard
+
+    </a>
+
+</div>
+
+</body>
+</html>

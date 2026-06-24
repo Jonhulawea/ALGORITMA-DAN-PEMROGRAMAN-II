@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Data Mahasiswa - SIMTI</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#0f0517;
+    color:white;
+}
+
+/* HEADER */
+
+.header{
+    background:linear-gradient(
+        135deg,
+        #ff4fa3,
+        #d946ef
+    );
+
+    padding:25px 35px;
+}
+
+.header h1{
+    margin-bottom:8px;
+}
+
+.header p{
+    color:#ffe4f3;
+}
+
+/* CONTAINER */
+
+.container{
+    width:95%;
+    margin:25px auto;
+}
+
+/* TOP MENU */
+
+.top-action{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.left-menu{
+    display:flex;
+    gap:10px;
+}
+
+.btn{
+    padding:12px 18px;
+    border-radius:12px;
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.btn-dashboard{
+    background:#241033;
+}
+
+.btn-kembali{
+    background:#241033;
+}
+
+.btn-dashboard:hover,
+.btn-kembali:hover{
+    background:#32144a;
+}
+
+.btn-tambah{
+    background:linear-gradient(
+        135deg,
+        #ff4fa3,
+        #d946ef
+    );
+}
+
+/* CARD */
+
+.card{
+    background:#1a0d27;
+    border:1px solid rgba(255,79,163,.12);
+    border-radius:24px;
+    padding:25px;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.15);
+}
+
+.card h2{
+    color:#ff7ab8;
+    margin-bottom:20px;
+}
+
+/* SEARCH */
+
+.search-box{
+    display:flex;
+    gap:10px;
+    margin-bottom:25px;
+}
+
+.search-box input{
+    flex:1;
+
+    padding:14px 18px;
+
+    border:none;
+    outline:none;
+
+    border-radius:14px;
+
+    background:#241033;
+
+    color:white;
+}
+
+.search-box button{
+
+    width:55px;
+    height:55px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:linear-gradient(
+        135deg,
+        #ff4fa3,
+        #d946ef
+    );
+
+    color:white;
+    cursor:pointer;
+}
+
+/* TABLE */
+
+.table-modern{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.table-modern th{
+    background:#32144a;
+    color:#ff7ab8;
+    padding:15px;
+}
+
+.table-modern td{
+    padding:18px 15px;
+    text-align:center;
+    color:#d6c9e4;
+
+    border-bottom:
+    1px solid rgba(255,255,255,.05);
+}
+
+.table-modern tr:hover{
+    background:#241033;
+}
+
+/* BADGE */
+
+.badge{
+    background:#32144a;
+    color:#ff9fd0;
+
+    padding:8px 14px;
+
+    border-radius:20px;
+
+    font-size:13px;
+    font-weight:600;
+}
+
+/* AKSI */
+
+.aksi-group{
+    display:flex;
+    justify-content:center;
+}
+
+.btn-akademik,
+.btn-edit,
+.btn-hapus{
+
+    color:white;
+    text-decoration:none;
+
+    padding:10px 14px;
+}
+
+.btn-akademik{
+    background:#06b6d4;
+    border-radius:10px 0 0 10px;
+}
+
+.btn-edit{
+    background:#f59e0b;
+}
+
+.btn-hapus{
+    background:#ef4444;
+    border-radius:0 10px 10px 0;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .top-action{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .table-modern{
+        display:block;
+        overflow-x:auto;
+    }
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+
+    <h1>
+        🎓 Data Mahasiswa
+    </h1>
+
+    <p>
+        Sistem Informasi Mahasiswa Teknik Informatika
+    </p>
+
+</div>
+
+<div class="container">
+
+    <div class="top-action">
+
+        <div class="left-menu">
+
+            <a href="/"
+               class="btn btn-dashboard">
+
+                <i class="fa fa-home"></i>
+                Dashboard
+
+            </a>
+
+            <a href="/"
+                class="btn btn-kembali">
+
+                <i class="fa fa-arrow-left"></i>
+                Kembali
+
+            </a>
+
+        </div>
+
+        <a href="/tambah"
+           class="btn btn-tambah">
+
+            <i class="fa fa-plus"></i>
+            Tambah Mahasiswa
+
+        </a>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Daftar Mahasiswa</h2>
+
+        <form method="GET" class="search-box">
+
+            <input
+            type="text"
+            name="q"
+            value="{{ request.args.get('q','') }}"
+            placeholder="Cari Nama atau NIM...">
+
+            <button type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+
+        </form>
+
+        <table class="table-modern">
+
+            <thead>
+
+                <tr>
+                    <th>NIM</th>
+                    <th>Nama</th>
+                    <th>Semester</th>
+                    <th>IPK</th>
+                    <th>Aksi</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for mhs in mahasiswa %}
+
+                <tr>
+
+                    <td>{{ mhs.nim }}</td>
+
+                    <td>{{ mhs.nama }}</td>
+
+                    <td>
+                        <span class="badge">
+                            Semester {{ mhs.semester }}
+                        </span>
+                    </td>
+
+                    <td>{{ mhs.ipk }}</td>
+
+                    <td>
+
+                        <div class="aksi-group">
+
+                            <a href="/akademik/{{ mhs.nim }}"
+                               class="btn-akademik">
+                               Akademik
+                            </a>
+
+                            <a href="/edit/{{ mhs.nim }}"
+                               class="btn-edit">
+                               Edit
+                            </a>
+
+                            <a href="/hapus/{{ mhs.nim }}"
+                               class="btn-hapus"
+                               onclick="return confirm('Yakin hapus data?')">
+                               Hapus
+                            </a>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>

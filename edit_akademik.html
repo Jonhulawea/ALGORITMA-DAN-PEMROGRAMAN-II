@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Edit Akademik - SIMTI</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f1f3f6;
+}
+
+.container{
+    width:90%;
+    max-width:900px;
+    margin:30px auto;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+h2{
+    color:#3367e8;
+    margin-bottom:20px;
+}
+
+h3{
+    margin:20px 0 10px;
+    color:#444;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin-bottom:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#3367e8;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:#2456d3;
+}
+
+hr{
+    margin:20px 0;
+}
+
+</style>
+
+</head>
+<body>
+
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Edit Mata Kuliah</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+
+<div class="container">
+
+<div class="content">
+
+    <!-- TOPBAR -->
+
+    <div class="topbar">
+
+        <i class="fa fa-pen"></i>
+
+        <h3>EDIT MATA KULIAH</h3>
+
+    </div>
+
+    <!-- WELCOME -->
+
+    <div class="welcome">
+
+        <h1>{{ mahasiswa.nama }}</h1>
+
+        <p>
+            NIM : {{ mahasiswa.nim }}
+        </p>
+
+    </div>
+
+    <br>
+
+    <div class="card">
+
+        <h2>Edit Data Mata Kuliah</h2>
+
+        <form method="POST">
+
+            <div class="form-group">
+
+                <label>Kode Mata Kuliah</label>
+
+                <input
+                type="text"
+                name="kode"
+                value="{{ matkul.kode }}"
+                required>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Nama Mata Kuliah</label>
+
+                <input
+                type="text"
+                name="nama"
+                value="{{ matkul.nama }}"
+                required>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Nama Dosen</label>
+
+                <input
+                type="text"
+                name="dosen"
+                value="{{ matkul.dosen }}"
+                required>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>SKS</label>
+
+                <select name="sks">
+
+                    <option value="2"
+                    {% if matkul.sks == 2 %}selected{% endif %}>
+                        2 SKS
+                    </option>
+
+                    <option value="3"
+                    {% if matkul.sks == 3 %}selected{% endif %}>
+                        3 SKS
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Nilai</label>
+
+                <select name="nilai">
+
+                    <option value="A">A</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B">B</option>
+                    <option value="B-">B-</option>
+                    <option value="C+">C+</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+
+                </select>
+
+            </div>
+
+            <br>
+
+            <div class="action">
+
+                <button
+                type="submit"
+                class="btn tambah">
+
+                    <i class="fa fa-save"></i>
+                    Simpan Perubahan
+
+                </button>
+
+                <a href="/akademik/{{ mahasiswa.nim }}"
+                   class="btn dashboard">
+
+                    <i class="fa fa-arrow-left"></i>
+                    Kembali
+
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+</div>
+
+</body>
+</html>
